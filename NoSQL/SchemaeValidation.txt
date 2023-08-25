@@ -1,0 +1,218 @@
+test> use iftm
+switched to db iftm
+iftm> db.createCollection("School", {
+   validator: {
+     $jsonSchema: {
+       bsonType: "object",
+       required: ["name", "ein", "director"],
+       properties: {
+         name: { bsonType: "string", maxLength: 64 },
+         ein: { bsonType: "string", maxLength: 10 },
+         director: { bsonType: "string", maxLength: 48 },
+         address: {
+           bsonType: "object",
+           properties: {
+             city: { bsonType: "string" },
+             street: { bsonType: "string" },
+             zipCode: { bsonType: "string" },
+             number: { bsonType: "int", minimum: 1 },
+             country: { bsonType: "string" }
+           }
+         }
+       }
+     }
+   }
+ })
+{ ok: 1 }
+   validator: {
+     $jsonSchema: {
+       bsonType: "object",
+       required: ["firstName", "lastName", "age", "schoolId", "identity"],
+       properties: {
+         firstName: { bsonType: "string", maxLength: 24 },
+         lastName: { bsonType: "string", maxLength: 24 },
+         age: { bsonType: "int", minimum: 15, maximum: 100 },
+         schoolId: { bsonType: "int", minimum: 1000, maximum: 9999 },
+         address: {
+           bsonType: "object",
+           properties: {
+             city: { bsonType: "string" },
+             street: { bsonType: "string" },
+             zipCode: { bsonType: "string" },
+             number: { bsonType: "int", minimum: 1 },
+             country: { bsonType: "string" }
+           }
+         },
+         identity: {
+           bsonType: "object",
+           required: ["taxpayer"],
+           properties: {
+             identityNumber: { bsonType: "string", maxLength: 8 },
+             fatherName: { bsonType: "string", maxLength: 48 },
+             motherName: { bsonType: "string", maxLength: 48 },
+             naturalness: { bsonType: "string", maxLength: 32 },
+             nationality: { bsonType: "string", maxLength: 24 },
+             taxpayer: { bsonType: "string", maxLength: 11 }
+           }
+         }
+       }
+     }
+   }
+ })
+{ ok: 1 }
+   name: "Escola ABC",
+   ein: "1234567890",
+   director: "João Silva",
+   address: {
+     city: "Cidade A",
+     street: "Rua Principal",
+     zipCode: "12345-678",
+     number: 123,
+     country: "País X"
+   }
+ });
+{
+  acknowledged: true,
+  insertedId: ObjectId("64e2a161c1aef4d1a4f5c298")
+}
+iftm>
+
+iftm> // Inserção válida na coleção "School"
+
+iftm> db.School.insertOne({
+   name: "Escola XYZ",
+   ein: "9876543210",
+   director: "Maria Santos",
+   address: {
+     city: "Cidade B",
+     street: "Avenida Secundária",
+     zipCode: "54321-876",
+     number: 456,
+     country: "País Y"
+   }
+ });
+{
+  acknowledged: true,
+  insertedId: ObjectId("64e2a162c1aef4d1a4f5c299")
+}
+iftm>
+
+iftm> // Inserção com erro proposital na coleção "School"
+
+iftm> db.School.insertOne({
+   name: "Escola Errada",
+   ein: "12345678901234567890", // Erro: tamanho maior que 10
+   director: "Pedro Oliveira",
+   address: {
+     city: "Cidade C",
+     street: "Rua Errada",
+     zipCode: "99999-000",
+     number: 789,
+     country: "País Z"
+   }
+ });
+Uncaught:
+MongoServerError: Document failed validation
+Additional information: {
+  failingDocumentId: ObjectId("64e2a162c1aef4d1a4f5c29a"),
+  details: {
+    operatorName: '$jsonSchema',
+    schemaRulesNotSatisfied: [
+      {
+        operatorName: 'properties',
+        propertiesNotSatisfied: [ { propertyName: 'ein', details: [ [Object] ] } ]
+      }
+    ]
+  }
+}
+   firstName: "João",
+   lastName: "Silva",
+   age: 20,
+   schoolId: 1234,
+   address: {
+     city: "Cidade A",
+     street: "Rua Principal",
+     zipCode: "12345-678",
+     number: 123,
+     country: "País X"
+   },
+   identity: {
+     identityNumber: "12345678",
+     fatherName: "José Silva",
+     motherName: "Maria Silva",
+     naturalness: "Cidade A",
+     nationality: "Brasileira",
+     taxpayer: "123.456.789-01"
+   }
+ });
+Uncaught:
+MongoServerError: Document failed validation
+Additional information: {
+  failingDocumentId: ObjectId("64e2a2d3c1aef4d1a4f5c29b"),
+  details: {
+    operatorName: '$jsonSchema',
+    schemaRulesNotSatisfied: [
+      {
+        operatorName: 'properties',
+        propertiesNotSatisfied: [ { propertyName: 'identity', details: [ [Object] ] } ]
+      }
+    ]
+  }
+}
+iftm> db.Student.insertOne({
+   firstName: "Maria",
+   lastName: "Santos",
+   age: 18,
+   schoolId: 5678,
+   address: {
+     city: "Cidade B",
+     street: "Avenida Secundária",
+     zipCode: "54321-876",
+     number: 456,
+     country: "País Y"
+   },
+   identity: {
+     identityNumber: "87654321",
+     fatherName: "Carlos Santos",
+     motherName: "Ana Santos",
+     naturalness: "Cidade B",
+     nationality: "Brasileira",
+     taxpayer: "987.654.321-00"
+   }
+ });
+Uncaught:
+MongoServerError: Document failed validation
+Additional information: {
+  failingDocumentId: ObjectId("64e2a2d3c1aef4d1a4f5c29c"),
+  details: {
+    operatorName: '$jsonSchema',
+    schemaRulesNotSatisfied: [
+      {
+        operatorName: 'properties',
+        propertiesNotSatisfied: [ { propertyName: 'identity', details: [ [Object] ] } ]
+      }
+    ]
+  }
+}
+iftm> db.Student.insertOne({
+   firstName: "Pedro",
+   lastName: "Oliveira",
+   age: 110, // Erro: idade maior que 100
+   schoolId: 9999,
+   address: {
+     city: "Cidade C",
+     street: "Rua Errada",
+     zipCode: "99999-000",
+     number: 789,
+     country: "País Z"
+   },
+   identity: {
+     identityNumber: "12345678",
+     fatherName: "Fernando Oliveira",
+     motherName: "Amanda Oliveira",
+     naturalness: "Cidade C",
+     nationality: "Brasileira",
+     taxpayer: "123.456.789-02"
+   }
+ });
+ });
