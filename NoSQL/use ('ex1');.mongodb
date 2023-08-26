@@ -1,0 +1,1573 @@
+use ('ex1');
+// // db.createCollection('customers');
+
+// //mongoimport --db ex1 --collection customers --file "C:\Users\aluno\Desktop\dataset.json" --jsonArray
+
+// //Obter os clientes com idade acima de 50 anos:
+// // db.customers.find({ age: { $gt: 50 } });
+
+// // [
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754227"
+// //     },
+// //     "name": "Rosa",
+// //     "lastName": "Ferreira",
+// //     "age": 98,
+// //     "credits": 300,
+// //     "movie": {
+// //       "title": "Romance Nacional",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "rosa.ferreira@example.com",
+// //       "numeringPlan": "PT",
+// //       "phone": "+55 21 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754228"
+// //     },
+// //     "name": "Antônio",
+// //     "lastName": "Oliveira",
+// //     "age": 94,
+// //     "credits": 500,
+// //     "movie": {
+// //       "title": "Drama Brasileiro",
+// //       "genre": "Drama"
+// //     },
+// //     "contact": {
+// //       "email": "antonio.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754229"
+// //     },
+// //     "name": "Sebastião",
+// //     "lastName": "Santos",
+// //     "age": 91,
+// //     "credits": 700,
+// //     "movie": {
+// //       "title": "Comédia Carioca",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "sebastiao.santos@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-2345"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754232"
+// //     },
+// //     "name": "Benedito",
+// //     "lastName": "Ribeiro",
+// //     "age": 97,
+// //     "credits": 950,
+// //     "movie": {
+// //       "title": "Ficção Científica Brasileira",
+// //       "genre": "Ficção Científica"
+// //     },
+// //     "contact": {
+// //       "email": "benedito.ribeiro@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754235"
+// //     },
+// //     "name": "Emília",
+// //     "lastName": "Almeida",
+// //     "age": 93,
+// //     "credits": 1200,
+// //     "movie": {
+// //       "title": "Ação Brasileira",
+// //       "genre": "Ação"
+// //     },
+// //     "contact": {
+// //       "email": "emilia.almeida@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-6543"
+// //     }
+// //   }
+// // ]
+
+// //Obter os clientes com idade abaixo de 18 anos:
+// // db.customers.find({ age: { $lt: 18 } });
+// // [
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754206"
+// //     },
+// //     "name": "Lara",
+// //     "lastName": "Santos",
+// //     "age": 12,
+// //     "credits": 200,
+// //     "movie": {
+// //       "title": "Aventura Infantil",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "lara.santos@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-9876"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754208"
+// //     },
+// //     "name": "Pedro",
+// //     "lastName": "Fernandes",
+// //     "age": 14,
+// //     "credits": 150,
+// //     "movie": {
+// //       "title": "Animação Brasileira",
+// //       "genre": "Animação"
+// //     },
+// //     "contact": {
+// //       "email": "pedro.fernandes@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-1234"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754209"
+// //     },
+// //     "name": "Gabriel",
+// //     "lastName": "Silva",
+// //     "age": 15,
+// //     "credits": 300,
+// //     "movie": {
+// //       "title": "Animação Nacional",
+// //       "genre": "Animação"
+// //     },
+// //     "contact": {
+// //       "email": "gabriel.silva@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420b"
+// //     },
+// //     "name": "Matheus",
+// //     "lastName": "Oliveira",
+// //     "age": 16,
+// //     "credits": 250,
+// //     "movie": {
+// //       "title": "Comédia Infantil",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "matheus.oliveira@example.com",
+// //       "numeringPlan": "US",
+// //       "phone": "+55 21 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420c"
+// //     },
+// //     "name": "Mariana",
+// //     "lastName": "Almeida",
+// //     "age": 11,
+// //     "credits": 100,
+// //     "movie": {
+// //       "title": "Aventura Nacional",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "mariana.almeida@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420d"
+// //     },
+// //     "name": "Enzo",
+// //     "lastName": "Gonçalves",
+// //     "age": 10,
+// //     "credits": 120,
+// //     "movie": {
+// //       "title": "Animação Cênica",
+// //       "genre": "Animação"
+// //     },
+// //     "contact": {
+// //       "email": "enzo.goncalves@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-6543"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420e"
+// //     },
+// //     "name": "Sophia",
+// //     "lastName": "Ribeiro",
+// //     "age": 13,
+// //     "credits": 180,
+// //     "movie": {
+// //       "title": "Fantasia Nacional",
+// //       "genre": "Fantasia"
+// //     },
+// //     "contact": {
+// //       "email": "sophia.ribeiro@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-2345"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420f"
+// //     },
+// //     "name": "Isabela",
+// //     "lastName": "Machado",
+// //     "age": 14,
+// //     "credits": 150,
+// //     "movie": {
+// //       "title": "Aventura Nacional",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "isabela.machado@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-7654"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754210"
+// //     },
+// //     "name": "Lucas",
+// //     "lastName": "Ferreira",
+// //     "age": 17,
+// //     "credits": 280,
+// //     "movie": {
+// //       "title": "Comédia Brasileira",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "lucas.ferreira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754211"
+// //     },
+// //     "name": "Manuela",
+// //     "lastName": "Lima",
+// //     "age": 15,
+// //     "credits": 220,
+// //     "movie": {
+// //       "title": "Fantasia Nacional",
+// //       "genre": "Fantasia"
+// //     },
+// //     "contact": {
+// //       "email": "manuela.lima@example.com",
+// //       "numeringPlan": "PT",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   }
+// // ]
+// //Obter os clientes com idade entre 20 e 40 anos:
+// // db.customers.find({ age: { $gte: 20, $lte: 40 } });
+// // [
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754203"
+// //     },
+// //     "name": "Mariana",
+// //     "lastName": "Fernandes",
+// //     "age": 20,
+// //     "credits": 1200,
+// //     "movie": {
+// //       "title": "Ação Brasileira",
+// //       "genre": "Ação"
+// //     },
+// //     "contact": {
+// //       "email": "mariana.fernandes@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-9876"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754204"
+// //     },
+// //     "name": "Gustavo",
+// //     "lastName": "Rocha",
+// //     "age": 26,
+// //     "credits": 600,
+// //     "movie": {
+// //       "title": "Drama Carioca",
+// //       "genre": "Drama"
+// //     },
+// //     "contact": {
+// //       "email": "gustavo.rocha@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-1234"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754205"
+// //     },
+// //     "name": "Amanda",
+// //     "lastName": "Rodrigues",
+// //     "age": 27,
+// //     "credits": 900,
+// //     "movie": {
+// //       "title": "Romance Cênico",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "amanda.rodrigues@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-6543"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754207"
+// //     },
+// //     "name": "Camila",
+// //     "lastName": "Alves",
+// //     "age": 21,
+// //     "credits": 950,
+// //     "movie": {
+// //       "title": "Romance Nacional",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "camila.alves@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420a"
+// //     },
+// //     "name": "Vinícius",
+// //     "lastName": "Pereira",
+// //     "age": 23,
+// //     "credits": 550,
+// //     "movie": {
+// //       "title": "Aventura Brasileira",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "vinicius.pereira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754212"
+// //     },
+// //     "name": "Fernanda",
+// //     "lastName": "Rodrigues",
+// //     "age": 37,
+// //     "credits": 1500,
+// //     "movie": {
+// //       "title": "Romance Carioca",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "fernanda.rodrigues@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754213"
+// //     },
+// //     "name": "Rafael",
+// //     "lastName": "Oliveira",
+// //     "age": 22,
+// //     "credits": 400,
+// //     "movie": {
+// //       "title": "Suspense Brasileiro",
+// //       "genre": "Suspense"
+// //     },
+// //     "contact": {
+// //       "email": "rafael.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754214"
+// //     },
+// //     "name": "Ana",
+// //     "lastName": "Silva",
+// //     "age": 28,
+// //     "credits": 500,
+// //     "movie": {
+// //       "title": "Aventura Brasileira",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "ana.silva@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754215"
+// //     },
+// //     "name": "Pedro",
+// //     "lastName": "Almeida",
+// //     "age": 29,
+// //     "credits": 1000,
+// //     "movie": {
+// //       "title": "Comédia Brasileira",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "pedro.almeida@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-2345"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754217"
+// //     },
+// //     "name": "Isabela",
+// //     "lastName": "Bueno",
+// //     "age": 26,
+// //     "credits": 750,
+// //     "movie": {
+// //       "title": "Ficção Nacional",
+// //       "genre": "Ficção"
+// //     },
+// //     "contact": {
+// //       "email": "isabela.machado@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-6543"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754218"
+// //     },
+// //     "name": "Mariana",
+// //     "lastName": "Costa",
+// //     "age": 31,
+// //     "credits": 900,
+// //     "movie": {
+// //       "title": "Drama Brasileiro",
+// //       "genre": "Drama"
+// //     },
+// //     "contact": {
+// //       "email": "mariana.costa@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754219"
+// //     },
+// //     "name": "Carolina",
+// //     "lastName": "Oliveira",
+// //     "age": 25,
+// //     "credits": 1000,
+// //     "movie": {
+// //       "title": "Suspense Brasileiro",
+// //       "genre": "Suspense"
+// //     },
+// //     "contact": {
+// //       "email": "carolina.oliveira@example.com",
+// //       "numeringPlan": "PT",
+// //       "phone": "+55 11 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575421a"
+// //     },
+// //     "name": "Lucas",
+// //     "lastName": "Silva",
+// //     "age": 24,
+// //     "credits": 800,
+// //     "movie": {
+// //       "title": "Comédia Paulista",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "lucas.silva@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575421b"
+// //     },
+// //     "name": "Isabella",
+// //     "lastName": "Costa",
+// //     "age": 22,
+// //     "credits": 1000,
+// //     "movie": {
+// //       "title": "Comédia Brasileira",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "isabella.costa@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-1234"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575421d"
+// //     },
+// //     "name": "Rafael",
+// //     "lastName": "Santos",
+// //     "age": 28,
+// //     "credits": 700,
+// //     "movie": {
+// //       "title": "Ficção Nacional",
+// //       "genre": "Ficção"
+// //     },
+// //     "contact": {
+// //       "email": "rafael.santos@example.com",
+// //       "numeringPlan": "US",
+// //       "phone": "+55 21 98765-6543"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575421e"
+// //     },
+// //     "name": "Rodrigo",
+// //     "lastName": "Bueno",
+// //     "age": 33,
+// //     "credits": 1200,
+// //     "movie": {
+// //       "title": "Ação Nacional",
+// //       "genre": "Ação"
+// //     },
+// //     "contact": {
+// //       "email": "rodrigo.goncalves@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575421f"
+// //     },
+// //     "name": "Maria",
+// //     "lastName": "Santos",
+// //     "age": 32,
+// //     "credits": 800,
+// //     "movie": {
+// //       "title": "Ação Brasileira",
+// //       "genre": "Ação"
+// //     },
+// //     "contact": {
+// //       "email": "maria.santos@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754220"
+// //     },
+// //     "name": "Larissa",
+// //     "lastName": "Mendes",
+// //     "age": 28,
+// //     "credits": 700,
+// //     "movie": {
+// //       "title": "Comédia Cênica",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "larissa.mendes@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-2345"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754221"
+// //     },
+// //     "name": "Gustavo",
+// //     "lastName": "Ferreira",
+// //     "age": 39,
+// //     "credits": 950,
+// //     "movie": {
+// //       "title": "Suspense Nacional",
+// //       "genre": "Suspense"
+// //     },
+// //     "contact": {
+// //       "email": "gustavo.ferreira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-6543"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754222"
+// //     },
+// //     "name": "Amanda",
+// //     "lastName": "Pereira",
+// //     "age": 24,
+// //     "credits": 550,
+// //     "movie": {
+// //       "title": "Aventura Brasileira",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "amanda.pereira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-4321"
+// //     }
+// //   }
+// // ]
+
+// //Obter os clientes com idade igual a 15 e 18 anos:
+// // db.customers.find({ age: { $in: [15, 18] } });
+// // [
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754209"
+// //     },
+// //     "name": "Gabriel",
+// //     "lastName": "Silva",
+// //     "age": 15,
+// //     "credits": 300,
+// //     "movie": {
+// //       "title": "Animação Nacional",
+// //       "genre": "Animação"
+// //     },
+// //     "contact": {
+// //       "email": "gabriel.silva@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754211"
+// //     },
+// //     "name": "Manuela",
+// //     "lastName": "Lima",
+// //     "age": 15,
+// //     "credits": 220,
+// //     "movie": {
+// //       "title": "Fantasia Nacional",
+// //       "genre": "Fantasia"
+// //     },
+// //     "contact": {
+// //       "email": "manuela.lima@example.com",
+// //       "numeringPlan": "PT",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   }
+// // ]
+
+// //Obter todos os clientes com nome "Fernando":
+// //db.customers.find({ name: "Fernando" });
+// //[]
+
+// //Obter um cliente com o nome "Ana":
+// use ("ex1");
+// db.customers.find({ name: "Ana" });
+// [
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a2900215754214"
+//     },
+//     "name": "Ana",
+//     "lastName": "Silva",
+//     "age": 28,
+//     "credits": 500,
+//     "movie": {
+//       "title": "Aventura Brasileira",
+//       "genre": "Aventura"
+//     },
+//     "contact": {
+//       "email": "ana.silva@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 11 98765-4321"
+//     }
+//   }
+// ]
+
+//  db.customers.find();
+// // [
+// //     {
+// //         "name": "Ana",
+// //         "lastName": "Silva",
+// //         "age": 28,
+// //         "credits": 500,
+// //         "movie": {
+// //             "title": "Aventura Brasileira",
+// //             "genre": "Aventura"
+// //         },
+// //         "contact": {
+// //             "email": "ana.silva@example.com",
+// //             "numeringPlan": "BR",
+// //             "phone": "+55 11 98765-4321"
+// //         }]
+
+// //Obter todos os clientes com 90 anos ou acima disso:
+// // db.customers.find({ age: { $gte: 90 } });
+// // [
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754227"
+// //     },
+// //     "name": "Rosa",
+// //     "lastName": "Ferreira",
+// //     "age": 98,
+// //     "credits": 300,
+// //     "movie": {
+// //       "title": "Romance Nacional",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "rosa.ferreira@example.com",
+// //       "numeringPlan": "PT",
+// //       "phone": "+55 21 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754228"
+// //     },
+// //     "name": "Antônio",
+// //     "lastName": "Oliveira",
+// //     "age": 94,
+// //     "credits": 500,
+// //     "movie": {
+// //       "title": "Drama Brasileiro",
+// //       "genre": "Drama"
+// //     },
+// //     "contact": {
+// //       "email": "antonio.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754229"
+// //     },
+// //     "name": "Sebastião",
+// //     "lastName": "Santos",
+// //     "age": 91,
+// //     "credits": 700,
+// //     "movie": {
+// //       "title": "Comédia Carioca",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "sebastiao.santos@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-2345"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754232"
+// //     },
+// //     "name": "Benedito",
+// //     "lastName": "Ribeiro",
+// //     "age": 97,
+// //     "credits": 950,
+// //     "movie": {
+// //       "title": "Ficção Científica Brasileira",
+// //       "genre": "Ficção Científica"
+// //     },
+// //     "contact": {
+// //       "email": "benedito.ribeiro@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754235"
+// //     },
+// //     "name": "Emília",
+// //     "lastName": "Almeida",
+// //     "age": 93,
+// //     "credits": 1200,
+// //     "movie": {
+// //       "title": "Ação Brasileira",
+// //       "genre": "Ação"
+// //     },
+// //     "contact": {
+// //       "email": "emilia.almeida@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-6543"
+// //     }
+// //   }
+// // ]
+
+// //Obter todos os clientes com sobrenome Oliveira:
+
+// db.customers.find({ lastName: "Oliveira" });
+
+// // [
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420b"
+// //     },
+// //     "name": "Matheus",
+// //     "lastName": "Oliveira",
+// //     "age": 16,
+// //     "credits": 250,
+// //     "movie": {
+// //       "title": "Comédia Infantil",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "matheus.oliveira@example.com",
+// //       "numeringPlan": "US",
+// //       "phone": "+55 21 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754213"
+// //     },
+// //     "name": "Rafael",
+// //     "lastName": "Oliveira",
+// //     "age": 22,
+// //     "credits": 400,
+// //     "movie": {
+// //       "title": "Suspense Brasileiro",
+// //       "genre": "Suspense"
+// //     },
+// //     "contact": {
+// //       "email": "rafael.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754219"
+// //     },
+// //     "name": "Carolina",
+// //     "lastName": "Oliveira",
+// //     "age": 25,
+// //     "credits": 1000,
+// //     "movie": {
+// //       "title": "Suspense Brasileiro",
+// //       "genre": "Suspense"
+// //     },
+// //     "contact": {
+// //       "email": "carolina.oliveira@example.com",
+// //       "numeringPlan": "PT",
+// //       "phone": "+55 11 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754228"
+// //     },
+// //     "name": "Antônio",
+// //     "lastName": "Oliveira",
+// //     "age": 94,
+// //     "credits": 500,
+// //     "movie": {
+// //       "title": "Drama Brasileiro",
+// //       "genre": "Drama"
+// //     },
+// //     "contact": {
+// //       "email": "antonio.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575422c"
+// //     },
+// //     "name": "Rafaela",
+// //     "lastName": "Oliveira",
+// //     "age": 29,
+// //     "credits": 3500,
+// //     "movie": {
+// //       "title": "Ação Brasileira",
+// //       "genre": "Ação"
+// //     },
+// //     "contact": {
+// //       "email": "rafaela.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575422f"
+// //     },
+// //     "name": "Ricardo",
+// //     "lastName": "Oliveira",
+// //     "age": 22,
+// //     "credits": 0,
+// //     "movie": {
+// //       "title": "Comédia Carioca",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "ricardo.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-9876"
+// //     }
+// //   }
+// // ]
+
+// //Obter todos os clientes que não têm o sobrenome Bueno:
+// // db.customers.find({ lastName: { $ne: "Bueno" } });
+// // [
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754203"
+// //     },
+// //     "name": "Mariana",
+// //     "lastName": "Fernandes",
+// //     "age": 20,
+// //     "credits": 1200,
+// //     "movie": {
+// //       "title": "Ação Brasileira",
+// //       "genre": "Ação"
+// //     },
+// //     "contact": {
+// //       "email": "mariana.fernandes@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-9876"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754204"
+// //     },
+// //     "name": "Gustavo",
+// //     "lastName": "Rocha",
+// //     "age": 26,
+// //     "credits": 600,
+// //     "movie": {
+// //       "title": "Drama Carioca",
+// //       "genre": "Drama"
+// //     },
+// //     "contact": {
+// //       "email": "gustavo.rocha@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-1234"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754205"
+// //     },
+// //     "name": "Amanda",
+// //     "lastName": "Rodrigues",
+// //     "age": 27,
+// //     "credits": 900,
+// //     "movie": {
+// //       "title": "Romance Cênico",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "amanda.rodrigues@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-6543"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754206"
+// //     },
+// //     "name": "Lara",
+// //     "lastName": "Santos",
+// //     "age": 12,
+// //     "credits": 200,
+// //     "movie": {
+// //       "title": "Aventura Infantil",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "lara.santos@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-9876"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754207"
+// //     },
+// //     "name": "Camila",
+// //     "lastName": "Alves",
+// //     "age": 21,
+// //     "credits": 950,
+// //     "movie": {
+// //       "title": "Romance Nacional",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "camila.alves@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754208"
+// //     },
+// //     "name": "Pedro",
+// //     "lastName": "Fernandes",
+// //     "age": 14,
+// //     "credits": 150,
+// //     "movie": {
+// //       "title": "Animação Brasileira",
+// //       "genre": "Animação"
+// //     },
+// //     "contact": {
+// //       "email": "pedro.fernandes@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-1234"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754209"
+// //     },
+// //     "name": "Gabriel",
+// //     "lastName": "Silva",
+// //     "age": 15,
+// //     "credits": 300,
+// //     "movie": {
+// //       "title": "Animação Nacional",
+// //       "genre": "Animação"
+// //     },
+// //     "contact": {
+// //       "email": "gabriel.silva@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420a"
+// //     },
+// //     "name": "Vinícius",
+// //     "lastName": "Pereira",
+// //     "age": 23,
+// //     "credits": 550,
+// //     "movie": {
+// //       "title": "Aventura Brasileira",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "vinicius.pereira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420b"
+// //     },
+// //     "name": "Matheus",
+// //     "lastName": "Oliveira",
+// //     "age": 16,
+// //     "credits": 250,
+// //     "movie": {
+// //       "title": "Comédia Infantil",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "matheus.oliveira@example.com",
+// //       "numeringPlan": "US",
+// //       "phone": "+55 21 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420c"
+// //     },
+// //     "name": "Mariana",
+// //     "lastName": "Almeida",
+// //     "age": 11,
+// //     "credits": 100,
+// //     "movie": {
+// //       "title": "Aventura Nacional",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "mariana.almeida@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420d"
+// //     },
+// //     "name": "Enzo",
+// //     "lastName": "Gonçalves",
+// //     "age": 10,
+// //     "credits": 120,
+// //     "movie": {
+// //       "title": "Animação Cênica",
+// //       "genre": "Animação"
+// //     },
+// //     "contact": {
+// //       "email": "enzo.goncalves@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-6543"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420e"
+// //     },
+// //     "name": "Sophia",
+// //     "lastName": "Ribeiro",
+// //     "age": 13,
+// //     "credits": 180,
+// //     "movie": {
+// //       "title": "Fantasia Nacional",
+// //       "genre": "Fantasia"
+// //     },
+// //     "contact": {
+// //       "email": "sophia.ribeiro@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-2345"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575420f"
+// //     },
+// //     "name": "Isabela",
+// //     "lastName": "Machado",
+// //     "age": 14,
+// //     "credits": 150,
+// //     "movie": {
+// //       "title": "Aventura Nacional",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "isabela.machado@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-7654"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754210"
+// //     },
+// //     "name": "Lucas",
+// //     "lastName": "Ferreira",
+// //     "age": 17,
+// //     "credits": 280,
+// //     "movie": {
+// //       "title": "Comédia Brasileira",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "lucas.ferreira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754211"
+// //     },
+// //     "name": "Manuela",
+// //     "lastName": "Lima",
+// //     "age": 15,
+// //     "credits": 220,
+// //     "movie": {
+// //       "title": "Fantasia Nacional",
+// //       "genre": "Fantasia"
+// //     },
+// //     "contact": {
+// //       "email": "manuela.lima@example.com",
+// //       "numeringPlan": "PT",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754212"
+// //     },
+// //     "name": "Fernanda",
+// //     "lastName": "Rodrigues",
+// //     "age": 37,
+// //     "credits": 1500,
+// //     "movie": {
+// //       "title": "Romance Carioca",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "fernanda.rodrigues@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-8765"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754213"
+// //     },
+// //     "name": "Rafael",
+// //     "lastName": "Oliveira",
+// //     "age": 22,
+// //     "credits": 400,
+// //     "movie": {
+// //       "title": "Suspense Brasileiro",
+// //       "genre": "Suspense"
+// //     },
+// //     "contact": {
+// //       "email": "rafael.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-5432"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754214"
+// //     },
+// //     "name": "Ana",
+// //     "lastName": "Silva",
+// //     "age": 28,
+// //     "credits": 500,
+// //     "movie": {
+// //       "title": "Aventura Brasileira",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "ana.silva@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754215"
+// //     },
+// //     "name": "Pedro",
+// //     "lastName": "Almeida",
+// //     "age": 29,
+// //     "credits": 1000,
+// //     "movie": {
+// //       "title": "Comédia Brasileira",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "pedro.almeida@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-2345"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a2900215754216"
+// //     },
+// //     "name": "Carlos",
+// //     "lastName": "Ribeiro",
+// //     "age": 42,
+// //     "credits": 1100,
+// //     "movie": {
+// //       "title": "Aventura Tropical",
+// //       "genre": "Aventura"
+// //     },
+// //     "contact": {
+// //       "email": "carlos.ribeiro@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-7654"
+// //     }
+// //   }
+// // ]
+
+// //Obter todos os clientes que têm créditos acima de 3000 pontos:
+// // db.customers.find({ credits: { $gt: 3000 } });
+
+// // [
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575422b"
+// //     },
+// //     "name": "Vinícius",
+// //     "lastName": "Silva",
+// //     "age": 32,
+// //     "credits": 3200,
+// //     "movie": {
+// //       "title": "Comédia Nacional",
+// //       "genre": "Comédia"
+// //     },
+// //     "contact": {
+// //       "email": "vinicius.silva@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-9876"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575422c"
+// //     },
+// //     "name": "Rafaela",
+// //     "lastName": "Oliveira",
+// //     "age": 29,
+// //     "credits": 3500,
+// //     "movie": {
+// //       "title": "Ação Brasileira",
+// //       "genre": "Ação"
+// //     },
+// //     "contact": {
+// //       "email": "rafaela.oliveira@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 11 98765-4321"
+// //     }
+// //   },
+// //   {
+// //     "_id": {
+// //       "$oid": "64e93c1d98a290021575422d"
+// //     },
+// //     "name": "Carla",
+// //     "lastName": "Santos",
+// //     "age": 28,
+// //     "credits": 3100,
+// //     "movie": {
+// //       "title": "Romance Carioca",
+// //       "genre": "Romance"
+// //     },
+// //     "contact": {
+// //       "email": "carla.santos@example.com",
+// //       "numeringPlan": "BR",
+// //       "phone": "+55 21 98765-1234"
+// //     }
+// //   }
+// // ]
+
+// //Obter todos os clientes que têm créditos acima de 1000 pontos e abaixo de 2500 pontos:
+// db.customers.find({ credits: { $gt: 1000, $lt: 2500 } });
+// [
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a2900215754203"
+//     },
+//     "name": "Mariana",
+//     "lastName": "Fernandes",
+//     "age": 20,
+//     "credits": 1200,
+//     "movie": {
+//       "title": "Ação Brasileira",
+//       "genre": "Ação"
+//     },
+//     "contact": {
+//       "email": "mariana.fernandes@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 11 98765-9876"
+//     }
+//   },
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a2900215754212"
+//     },
+//     "name": "Fernanda",
+//     "lastName": "Rodrigues",
+//     "age": 37,
+//     "credits": 1500,
+//     "movie": {
+//       "title": "Romance Carioca",
+//       "genre": "Romance"
+//     },
+//     "contact": {
+//       "email": "fernanda.rodrigues@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 21 98765-8765"
+//     }
+//   },
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a2900215754216"
+//     },
+//     "name": "Carlos",
+//     "lastName": "Ribeiro",
+//     "age": 42,
+//     "credits": 1100,
+//     "movie": {
+//       "title": "Aventura Tropical",
+//       "genre": "Aventura"
+//     },
+//     "contact": {
+//       "email": "carlos.ribeiro@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 11 98765-7654"
+//     }
+//   },
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a290021575421c"
+//     },
+//     "name": "Bruno",
+//     "lastName": "Machado",
+//     "age": 19,
+//     "credits": 1200,
+//     "movie": {
+//       "title": "Ação Carioca",
+//       "genre": "Ação"
+//     },
+//     "contact": {
+//       "email": "bruno.machado@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 21 98765-9876"
+//     }
+//   },
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a290021575421e"
+//     },
+//     "name": "Rodrigo",
+//     "lastName": "Bueno",
+//     "age": 33,
+//     "credits": 1200,
+//     "movie": {
+//       "title": "Ação Nacional",
+//       "genre": "Ação"
+//     },
+//     "contact": {
+//       "email": "rodrigo.goncalves@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 11 98765-5432"
+//     }
+//   },
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a2900215754226"
+//     },
+//     "name": "Carolina",
+//     "lastName": "Lima",
+//     "age": 35,
+//     "credits": 1100,
+//     "movie": {
+//       "title": "Ficção Científica Brasileira",
+//       "genre": "Ficção Científica"
+//     },
+//     "contact": {
+//       "email": "carolina.lima@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 21 98765-5432"
+//     }
+//   },
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a2900215754234"
+//     },
+//     "name": "João",
+//     "lastName": "Silva",
+//     "age": 28,
+//     "credits": 1200,
+//     "movie": {
+//       "title": "Comédia Paulista",
+//       "genre": "Comédia"
+//     },
+//     "contact": {
+//       "email": "joao.silva@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 11 98765-9876"
+//     }
+//   },
+//   {
+//     "_id": {
+//       "$oid": "64e93c1d98a2900215754235"
+//     },
+//     "name": "Emília",
+//     "lastName": "Almeida",
+//     "age": 93,
+//     "credits": 1200,
+//     "movie": {
+//       "title": "Ação Brasileira",
+//       "genre": "Ação"
+//     },
+//     "contact": {
+//       "email": "emilia.almeida@example.com",
+//       "numeringPlan": "BR",
+//       "phone": "+55 21 98765-6543"
+//     }
+//   }
+// ]
+
+//Contar quantos clientes têm créditos acima de 1000 pontos e abaixo de 2500 pontos:
+// db.customers.count({ credits: { $gt: 1000, $lt: 2500 } });
+//0
+
+//Obter todos os clientes que não têm crédito:
+//db.customers.find({ credits: 0 });
+// []
+
+//Inserir 1000 de créditos para os clientes que não possuem:
+// db.customers.updateMany({ credits: 0 }, { $set: { credits: 1000 } });
+// {
+//   "acknowledged": true,
+//   "insertedId": null,
+//   "matchedCount": 0,
+//   "modifiedCount": 0,
+//   "upsertedCount": 0
+// }
+
+//Obter todos os clientes que têm o país BR:
+//db.customers.find({ "contact.numeringPlan": "BR" });
+
+//Obter todos os clientes que não têm o país BR:
+//db.customers.find({ "contact.numeringPlan": { $ne: "BR" } });
+
+//Remover o cliente Roberto:
+// db.customers.deleteOne({ name: "Roberto" });
+// //{
+//   "acknowledged": true,
+//   "deletedCount": 0
+// }
+
+//Alterar o sobrenome da Luzia para “Araújo”:
+// db.customers.updateOne({ name: "Luzia" }, { $set: { lastName: "Araújo" } });
+// {
+//   "acknowledged": true,
+//   "insertedId": null,
+//   "matchedCount": 0,
+//   "modifiedCount": 0,
+//   "upsertedCount": 0
+// }
+
+//Obter todos os clientes que possuem filme com o gênero “Romance”:
+//db.customers.find({ "movie.genre": "Romance" });
+
+//Alterar os filmes do gênero “Ação” para “Ação da Pesada”:
+// db.customers.updateMany({ "movie.genre": "Ação" }, { $set: { "movie.genre": "Ação da Pesada" } });
+// {
+//   "acknowledged": true,
+//   "insertedId": null,
+//   "matchedCount": 0,
+//   "modifiedCount": 0,
+//   "upsertedCount": 0
+// }
