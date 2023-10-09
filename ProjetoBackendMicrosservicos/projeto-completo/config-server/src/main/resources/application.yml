@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          uri: https://github.com/rayDutra/IFTM-4Periodo/tree/22c2fcce1fcb654c8249f316d26fe1327f91f715/ProjetoBackendMicrosservicos/projeto-completo
+
+server:
+  port: 8888

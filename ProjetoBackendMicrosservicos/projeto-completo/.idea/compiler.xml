@@ -2,33 +2,26 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="newsletter" />
+        <module name="config-server" />
+        <module name="Logs" />
         <module name="eureka-server" />
         <module name="api-gateway-server" />
-        <module name="logs" />
-        <module name="newsLetter" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Logs" target="1.5" />
-      <module name="news" target="17" />
-      <module name="newsletter" target="17" />
-      <module name="newsletter (1) (ilussencio.com)" target="17" />
-      <module name="newsLetter (2) (org.example)" target="20" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Logs" options="-parameters" />
       <module name="api-gateway-server" options="-parameters" />
+      <module name="config-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
-      <module name="logs" options="-parameters" />
-      <module name="news" options="-parameters" />
-      <module name="newsLetter" options="-parameters" />
       <module name="newsletter" options="-parameters" />
-      <module name="newsletter (1) (ilussencio.com)" options="-parameters" />
     </option>
   </component>
 </project>
