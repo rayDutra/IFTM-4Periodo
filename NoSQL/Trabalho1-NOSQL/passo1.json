@@ -1,0 +1,29 @@
+{
+  "name": "Project X",
+  "startDate": "10/10/2023",
+  "endDate": "10/15/2023",
+  "tasks": [
+    {
+      "title": "Task 1",
+      "description": "Description of Task 1",
+      "creationDate": "10/10/2023",
+      "completionDate": "10/12/2023",
+      "status": "Done",
+      "user": {
+        "name": "John Doe",
+        "email": "johndoe@example.com"
+      }
+    },
+    {
+      "title": "Task 2",
+      "description": "Description of Task 2",
+      "creationDate": "10/11/2023",
+      "completionDate": "10/14/2023",
+      "status": "In-Progress",
+      "user": {
+        "name": "Jane Smith",
+        "email": "janesmith@example.com"
+      }
+    }
+  ]
+}
