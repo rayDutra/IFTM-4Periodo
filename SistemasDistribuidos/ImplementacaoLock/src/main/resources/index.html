@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferência Bancária</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Transferência Bancária</h1>
+
+    <div>
+        <h2>Transferência com Lock Otimista</h2>
+        <button onclick="realizarTransferenciaOtimista()">Realizar Transferência Otimista</button>
+    </div>
+
+    <div>
+        <h2>Transferência com Lock Pessimista</h2>
+        <button onclick="realizarTransferenciaPessimista()">Realizar Transferência Pessimista</button>
+    </div>
+</div>
+
+<script>
+    async function realizarTransferenciaOtimista() {
+        const contaDebitoId = 1;
+        const contaCreditoId = 2;
+        const valor = 100.0;
+
+        try {
+            await fetch('/contas/transferencia/lock-otimista', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `contaDebitoId=${contaDebitoId}&contaCreditoId=${contaCreditoId}&valor=${valor}`
+            });
+            alert('Transferência com Lock Otimista realizada com sucesso.');
+        } catch (error) {
+            console.error('Erro ao realizar Transferência com Lock Otimista:', error);
+        }
+    }
+
+    async function realizarTransferenciaPessimista() {
+        const contaDebitoId = 1;
+        const contaCreditoId = 2;
+        const valor = 100.0;
+
+        try {
+            await fetch('/contas/transferencia/lock-pessimista', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `contaDebitoId=${contaDebitoId}&contaCreditoId=${contaCreditoId}&valor=${valor}`
+            });
+            alert('Transferência com Lock Pessimista realizada com sucesso.');
+        } catch (error) {
+            console.error('Erro ao realizar Transferência com Lock Pessimista:', error);
+        }
+    }
+</script>
+</body>
+
+</html>
